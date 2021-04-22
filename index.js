@@ -4,12 +4,17 @@
  //Display forcast info on the page
  //Format and style
  //Begin stretch goals
- 
 
 
+ /*
+ fetch('https://meta-weather.vercel.app/api/location/search/?query=san', {
+})
+  .then(res => res.json())
+  .then(console.log)
+*/
 
  //add event listner to form submit 
- let zip = document.getElementById('zipCode').value
+ let location = document.getElementById('location').value
 
 const configObj = {
     method: 'GET',
@@ -18,21 +23,14 @@ const configObj = {
   };
 
   //Pull 5 day forecast from API based on zip
- let API = 'https://www.metaweather.com/api/location/search/?query='+zip
+ let API = 'https://meta-weather.vercel.app/api/location/search/?query='+location
   function getlocation(){ 
    return fetch( API, configObj)
      .then(response => response.json())
      .then(data => console.log(data));
           //get woeid and send to getWeather()
  }  
-/* run this in console to test getLocation()
-fetch( 'https://www.metaweather.com/api/location/search/?query=11755',
-   {
-    method: 'GET',
-    headers: { 'Content-Type': 'application/json' },
-    mode: 'no-cors'
-  })
-*/
+
 
   function getWeather(){ 
    return fetch('https://www.metaweather.com//api/location/'+woeid,
