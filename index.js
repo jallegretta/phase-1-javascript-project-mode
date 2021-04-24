@@ -1,26 +1,18 @@
-/* // test fetch statment
- fetch('https://meta-weather.vercel.app/api/location/search/?query=san', {
-})
-  .then(res => res.json())
-  .then(console.log)
-*/
-
 //Grab the containers and assign to a var
 const searchContainer = document.getElementById('search-container');
 const weatherContainer = document.getElementById('weather-container');
 //Grab the button , assign to a var and add event listener
-//const submitBtn = document.querySelector(('#search-container > button')
-document.querySelector('#search-container > button').addEventListener('click', (e) => {
-    e.preventDefault()
+const submitBtn = document.querySelector('#search-container > button');
+submitBtn.addEventListener('click', (e) => { 
     let location = document.querySelector("#city").value
     console.log(location)
+    e.preventDefault()
 });
 
-document.querySelector('#search-container > button').addEventListener("keyup", (e) => {
+submitBtn.addEventListener("keyup", (e) => {
     // Number 13 is the "Enter" key on the keyboard
     if (e.keyCode === 13) {
       e.preventDefault();
-      // Trigger the button element with a click
       document.getElementById(submitBtn).click();
     }
   });
@@ -71,3 +63,9 @@ document.addEventListener('DOMContentLoaded', (e) => {
 });// DOM Content Loaded
 */
 
+/* // test fetch statment
+ fetch('https://meta-weather.vercel.app/api/location/search/?query=san', {
+})
+  .then(res => res.json())
+  .then(console.log)
+*/
