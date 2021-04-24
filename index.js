@@ -1,28 +1,31 @@
-/* // test fetch statment
+/* // test fetch statmentgi
  fetch('https://meta-weather.vercel.app/api/location/search/?query=san', {
 })
   .then(res => res.json())
   .then(console.log)
 */
 
+const searchContainer;
+const weatherContainer;
+
+
 document.addEventListener('DOMContentLoaded', (e) => {
     console.log('DOM fully loaded and parsed');
 
-    function containers(){
+    function grabContainers(){
         //grab the divs 
-        const searchContainer = document.getElementById('search-container');
-        const weatherContainer = document.getElementById('weather-container');
+        searchContainer = document.getElementById('search-container');
+        weatherContainer = document.getElementById('weather-container');
     }
-
+    
     //Create the search box and button
     function createSearchBox(){
-        const searchBox = document.createElement("INPUT").autofocus;
+        const searchBox = document.createElement('input').autofocus;
         searchBox.setAttribute("type", "text");
         
-        const submitBtn = document.createElement("BUTTON");
+        const submitBtn = document.createElement('button');
         submitBtn.innerText = 'Submit'
-        let location = document.getElementById('searchBox').value;
-        //submitBtn.addEventListner('click', getlocation)  
+        let location = document.getElementById('searchBox').value;  
     }
 
     function createForecast(){
@@ -34,8 +37,8 @@ document.addEventListener('DOMContentLoaded', (e) => {
 
     }
     function appendToSeachContainer(){
-        searchContainer.append(searchBox)
-        searchContainer.append(submitBtn)
+        searchContainer.append(searchBox);
+        searchContainer.append(submitBtn);
     }
     //Configure Fetch params
     const configObj = {
@@ -63,8 +66,10 @@ document.addEventListener('DOMContentLoaded', (e) => {
         .then(response => response.json())
         .then(data => console.log(data));
 
-    }  
-
+    } 
+    grabContainers()
+    createSearchBox()
+    appendToSeachContainer()
 });// DOM Content Loaded
 
 
