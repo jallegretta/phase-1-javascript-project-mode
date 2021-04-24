@@ -5,47 +5,29 @@
   .then(console.log)
 */
 
-const searchContainer;
-const weatherContainer;
+//Grab the containers and assign to a var
+const searchContainer = document.getElementById('search-container');
+const weatherContainer = document.getElementById('weather-container');
+//Grab the button , assign to a var and add event listener
+const submitBtn = document.getElementById('#search-container > input[type=submit]')
+submitBtn.addEventListener('click', callback)
+//set location as value of searchboxbox
+let location = document.getElementsByClassName('#city')
 
 
-document.addEventListener('DOMContentLoaded', (e) => {
-    console.log('DOM fully loaded and parsed');
 
-    function grabContainers(){
-        //grab the divs 
-        searchContainer = document.getElementById('search-container');
-        weatherContainer = document.getElementById('weather-container');
-    }
-    
-    //Create the search box and button
-    function createSearchBox(){
-        const searchBox = document.createElement('input').autofocus;
-        searchBox.setAttribute("type", "text");
-        
-        const submitBtn = document.createElement('button');
-        submitBtn.innerText = 'Submit'
-        let location = document.getElementById('searchBox').value;  
-    }
+//Fetch functions
+//Pass the city from the form to the fetch and get the woeid for the city
+//Then pass the woeid to the second fetch to get the forecast for the woeid city
 
-    function createForecast(){
-        console.log('forecast placeholder');
-    }
 
-    function appendForecast(){
-        console.log('forecast placeholder');
 
-    }
-    function appendToSeachContainer(){
-        searchContainer.append(searchBox);
-        searchContainer.append(submitBtn);
-    }
-    //Configure Fetch params
-    const configObj = {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' },
-        mode: 'no-cors'
-    };
+//Configure Fetch params
+const configObj = {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
+    mode: 'no-cors'
+};
 
     //Pull forecast from API based on city
     let API = 'https://meta-weather.vercel.app/api/location/search/?query='+location
@@ -67,9 +49,19 @@ document.addEventListener('DOMContentLoaded', (e) => {
         .then(data => console.log(data));
 
     } 
-    grabContainers()
-    createSearchBox()
-    appendToSeachContainer()
-});// DOM Content Loaded
 
+
+    function createForecast(){
+        console.log('forecast placeholder');
+    }
+
+    function appendForecast(){
+        console.log('forecast placeholder');
+
+    }
+/*
+document.addEventListener('DOMContentLoaded', (e) => {
+    console.log('DOM fully loaded and parsed');
+});// DOM Content Loaded
+*/
 
