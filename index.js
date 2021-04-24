@@ -1,12 +1,30 @@
-//clear previous locations on load
-document.onload = function(){let location = "";
-
 //Grab the containers and assign to a var
 const searchContainer = document.getElementById('search-container');
 const weatherContainer = document.getElementById('weather-container');
 
+async function getlocation(){ 
+   fetch('https://meta-weather.vercel.app/api/location/search/?query=san+diego', {
+})
+  .then(response => response.json())
+  .then(data => console.log(data[0].woeid));
+
+
+   async function getWeather(){
+       fetch('https://meta-weather.vercel.app/api/location/2487889', {
+           method: 'GET',
+           headers: { 'Content-Type': 'application/json' },
+           mode: 'no-cors'
+       })
+       .then(response => response.json())
+        .then(data => console.log(data))
+        .then(citydata = await response.json());
+        console.log(citydata);
+       }
+
 //Grab the button , assign to a var and add event listener
-const submitBtn = document.querySelector('#search-container > button');
+const submitBtn = document.querySelector('#search-container > form > button');
+const searchBox = document.querySelector('#city')
+
 submitBtn.addEventListener('click', (e) => { 
     e.preventDefault()
     let location = document.querySelector("#city").value
@@ -31,26 +49,7 @@ submitBtn.addEventListener("keyup", (e) => {
 
 //Pull forecast from API based on city
 
-async function getlocation(){ 
- fetch('https://meta-weather.vercel.app/api/location/search/?query='+location, {
-    method: 'GET',
-    headers: { 'Content-Type': 'application/json' },
-    mode: 'no-cors'
-})
-    .then(response => response.json())
-    .then(data => console.log(data[0].woeid))//pull the woeid from here to pass to next fetch
-}  
 
-async function getWeather(){
-    fetch('https://meta-weather.vercel.app/api/location/2487889', {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' },
-        mode: 'no-cors'
-    })
-        let citydata = await response.json();
-        console.log(citydata);
-    //return the forecast and pass to the functions below
-    }
 
 function createForecast(){
     console.log('forecast placeholder');
