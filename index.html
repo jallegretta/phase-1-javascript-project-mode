@@ -5,7 +5,7 @@
 
     <title></title>
     <link rel="stylesheet" href="style.css">
-    <link rel="preload" as="script" href="index.js">
+    
   </head>
 
   <body>
@@ -14,11 +14,10 @@
       <h2>The Planting Planner</h2>
       <p>Enter your location into the searchbox for information to help you make planting decisions. <br>
       You will get your local forcast and the grow zone information</p>
-      <form>
-        <label for="city">City:</label><br>
-        <input type="text" id="city" name="location">
-        <button type="button">Submit</button>
-      </form>
+      <div class="search-box">
+        <input id="city" type="text" autocomplete="off" class="text-search" placeholder="Type the City Name..." >
+        <input id="submit" type="button" class="button-search" value="Search">
+    </div>
       
     </div>
 
@@ -26,9 +25,8 @@
 <div id="weather-container">
   <h2>Here is your local forecast to help you plan your days</h2>
 
-
-
 </div>
 
   </body>
+   <script type="text/javascript" src="index.js"></script>
 </html>
