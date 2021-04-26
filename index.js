@@ -47,7 +47,7 @@ submitBtn.addEventListener('click', () => {
    console.log('Fetching the weather for: ' + WID)
 
     async function getWeather(){                                               // + WID
-      const weatherRes = await fetch(`https://meta-weather.vercel.app/api/location/2487889`, {
+      const weatherRes = await fetch(`https://meta-weather.vercel.app/api/location/2459115`, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
             Body : 'consolidated_weather',
