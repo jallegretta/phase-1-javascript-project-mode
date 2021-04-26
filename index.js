@@ -31,15 +31,14 @@ const searchContainer = document.getElementById('search-container');
 const weatherContainer = document.getElementById('weather-container');
 const submitBtn = document.getElementById('submit')
 
-
 submitBtn.addEventListener('click', () => { 
     getlocation()
     let cityValue = document.getElementById('city').value
     console.log('Fetching woeid for ' + cityValue)
 })
 
-    async function getlocation(){                                                            // + cityValue
-        const response = await fetch('https://meta-weather.vercel.app/api/location/search/?query=new+york', {
+    async function getlocation(){                                                            
+        const response = await fetch('https://meta-weather.vercel.app/api/location/search/?query='+ cityValue, {
     })
    const data = await response.json()
    let WID = data[0].woeid
@@ -65,29 +64,3 @@ submitBtn.addEventListener('click', () => {
             weatherContainer.append('fiveDayForecast')
         }
          appendForecast()
-    
-    
-    
-
-  
-//TODO: Like and dislike buttons 
-  
-// const likeBtn = document.getElementById('like-button')
-// const dislikeBtn = document.getElementById('dislike-button')
-// const likeCount = document.createElement('p')
-// const dislikeCount = document.createElement('p')
-
-// function appendLikeStuff(){
-// searchContainer.append(likeCount)
-// searchContainer.append(dislikeCount)
-// }
-// appendLikeStuff()
-// likeBtn.addEventListener("click", function() {
-// let numberOfLikes = numberOfLikes + 1;
-// likeCount.append(numberOfLikes)
-// });
-
-// dislikeBtn.addEventListener("click", function() {
-// let numberOfHates = numberOfHates + 1;
-// dislikeCount.append(numberOfHates)
-// });
