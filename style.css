@@ -1,14 +1,22 @@
-body {
-        text-align: center;     
-  }
-
-form {
-    padding: 50px;
-    padding-top: 100px;
-    padding-bottom: 5px;
+#search-container {
+text-align: center;
+background-image: url("garden.jpg");
+height: 500px;
 }
 
-  #search-container {
-    background-image: url("garden.jpg");
-    height: 500px;
-  }
+#weather-container {
+    text-align: center;
+    }
+
+#darkModeContainer.p {
+    float:left;
+
+}
+
+#checkbox {
+    float: left;
+}
+
+#email {
+    padding: 100px;
+}
