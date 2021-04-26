@@ -58,16 +58,16 @@ submitBtn.addEventListener('click', () => {
         console.log(forecast)
         }
         getWeather()
-
-    function appendForecast(){
-        console.log('forecast placeholder');
-        let fiveDayForecast = 'Your 5 Day forcast:'
-        weatherContainer.append('fiveDayForecast')
     }
-    appendForecast()
-}
-
-
+        function appendForecast(){
+            console.log('forecast placeholder');
+            let fiveDayForecast = 'Your 5 Day forcast:'
+            weatherContainer.append('fiveDayForecast')
+        }
+         appendForecast()
+    
+    
+    
 
   
 //TODO: Like and dislike buttons 
